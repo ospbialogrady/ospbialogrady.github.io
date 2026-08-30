@@ -3207,3 +3207,7 @@ img, video {
         align-items: flex-start;
     }
 }
+
+#fanimani-extension-widget-root {
+    overflow: visible !important;
+}
