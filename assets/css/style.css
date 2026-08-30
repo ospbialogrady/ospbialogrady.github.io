@@ -72,7 +72,7 @@ body {
     'Manrope',
     sans-serif;
 
-    overflow: visible;
+    overflow-x: hidden;
 
 }
 
@@ -3208,16 +3208,3 @@ img, video {
     }
 }
 
-div#fanimani-extension-widget-root {
-    position: fixed !important;
-    top: 50% !important;
-    right: 0 !important;
-    left: auto !important;
-    bottom: auto !important;
-    transform: translateY(-50%) !important;
-    z-index: 99999 !important;
-}
-
-div#fanimani-extension-widget-root div[style*="display: none"] {
-    display: block !important;
-}
