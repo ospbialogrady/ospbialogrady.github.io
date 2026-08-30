@@ -3214,6 +3214,6 @@ div#fanimani-extension-widget-root {
     right: 0 !important;
     left: auto !important;
     bottom: auto !important;
-    transform: translateY(-50%);
+    transform: translateY(-50%) !important;
     z-index: 99999 !important;
 }
