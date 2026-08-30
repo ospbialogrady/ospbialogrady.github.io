@@ -3217,3 +3217,7 @@ div#fanimani-extension-widget-root {
     transform: translateY(-50%) !important;
     z-index: 99999 !important;
 }
+
+div#fanimani-extension-widget-root div[style*="display: none"] {
+    display: block !important;
+}
