@@ -2,4 +2,4 @@ User-agent: *
 
 Allow: /
 
-Sitemap: https://osp-bialogrady.github.io/sitemap.xml
+Sitemap: https://ospbialogrady.github.io/sitemap.xml
