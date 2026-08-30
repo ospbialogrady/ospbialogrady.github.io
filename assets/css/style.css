@@ -3208,6 +3208,9 @@ img, video {
     }
 }
 
-#fanimani-extension-widget-root {
-    overflow: visible !important;
+div#fanimani-extension-widget-root {
+    position: fixed !important;
+    right: 0 !important;
+    top: 50% !important;
+    z-index: 99999 !important;
 }
