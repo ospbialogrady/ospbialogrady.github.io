@@ -1,0 +1,28 @@
+name: Aktualizuj aktualności OSP
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-facebook-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pobierz repozytorium
+        uses: actions/checkout@v4
+      - name: Pobierz posty Facebooka
+        env:
+          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
+          META_PAGE_ACCESS_TOKEN: ${{ secrets.META_PAGE_ACCESS_TOKEN }}
+        run: python3 scripts/fetch_facebook_posts.py
+      - name: Zapisz nowe aktualności
+        run: |
+          git config user.name 'OSP Białogrądy – aktualności'
+          git config user.email 'actions@github.com'
+          git add assets/data/posts.json assets/img/news/
+          git diff --cached --quiet || git commit -m 'Automatyczna aktualizacja aktualności'
+          git push
