@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strona nie znaleziona (Błąd 404) | OSP BIAŁOGRĄDY</title>
+    <title>Strona nie znaleziona (Błąd 404) | OSP BIAŁOGRĄDY</title><meta name="robots" content="noindex,follow">
     
     <!-- Nowoczesne fonty - Oswald do wielkich napisów, Plus Jakarta dla czytelności, Share Tech Mono dla klimatu terminala -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; /* Ukrywamy domyślny kursor */ }
         body {
             background: #050505; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow: hidden; height: 100vh; width: 100vw;
+            overflow: auto; min-height: 100vh; width: 100%; overflow-x:hidden;
         }
 
         /* --- NIESTANDARDOWY KURSOR I ŚWIATŁO --- */
@@ -34,7 +34,7 @@
         /* --- TŁO Z EFEKTEM PARALAKSY --- */
         .bg-layer {
             position: absolute; top: -5%; left: -5%; width: 110%; height: 110%;
-            background: url('assets/img/historia.jpg') center/cover no-repeat;
+            background: url('assets/img/optimized/historia.webp') center/cover no-repeat;
             filter: grayscale(60%) brightness(0.15) contrast(1.5) sepia(20%) hue-rotate(-20deg);
             z-index: 1; transition: transform 0.1s ease-out;
         }
@@ -171,7 +171,7 @@
 <body>
 <nav id="site-nav" class="site-nav">
   <div class="container site-nav-inner">
-    <a class="site-brand" href="index.html"><img src="assets/img/logo.png" alt="Logo OSP Białogrądy"></a>
+    <a class="site-brand" href="index.html"><img src="assets/img/optimized/logo.webp" alt="Logo OSP Białogrądy"></a>
     <ul class="site-nav-links" id="primary-navigation">
       <li class="nav-main"><a href="index.html#about">O nas</a></li>
       <li class="nav-main"><a href="index.html#missions">Działania</a></li>
@@ -228,7 +228,7 @@
             </div>
             
             <!-- Jasny, zrozumiały nagłówek dla każdego -->
-            <h2 id="scramble-text">BŁĄD 404 – BRAK STRONY</h2>
+            <h1 id="scramble-text">BŁĄD 404 – BRAK STRONY</h1>
             
             <p>
                 Szukana strona nie istnieje lub została przeniesiona pod inny adres. Spokojnie – serwery i strona internetowa Ochotniczej Straży Pożarnej w Białogrądach działają w pełni sprawnie. Żadne systemy ratownicze nie ucierpiały.
