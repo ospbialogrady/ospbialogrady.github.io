@@ -1,0 +1,93 @@
+/* OSP Białogrądy — warstwa jakościowa v2 */
+:root {
+  --osp-red: #c8161d;
+  --osp-red-dark: #9d1016;
+  --osp-ink: #14181f;
+  --osp-muted: #55606e;
+  --osp-surface: #f5f6f8;
+  --osp-border: rgba(20, 24, 31, .12);
+  --osp-radius: 22px;
+  --osp-ease: cubic-bezier(.23, 1, .32, 1);
+}
+
+html { scroll-padding-top: 92px; }
+body { text-rendering: optimizeLegibility; }
+:focus-visible { outline: 3px solid #ffb400; outline-offset: 4px; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; }
+[hidden] { display: none !important; }
+
+/* Spójne, subtelniejsze przejścia zamiast agresywnego przesuwania elementów. */
+.btn, .mission-card, .operation-box, .gallery-item, .support-button,
+.nav-links a, .text-link { transition: transform .2s var(--osp-ease), box-shadow .2s var(--osp-ease), color .2s ease, background-color .2s ease; }
+.btn:active, .support-button:active { transform: scale(.98); }
+
+/* Główna nawigacja */
+#navbar { padding: 18px 0; }
+#navbar.scrolled { box-shadow: 0 10px 35px rgba(20, 24, 31, .08); }
+#navbar .logo img { width: auto; height: clamp(68px, 8vw, 100px) !important; }
+#navbar .nav-links a { white-space: nowrap; }
+#navbar .mobile-menu { border: 0; background: transparent; cursor: pointer; padding: 10px; }
+
+/* Hero: więcej hierarchii, mniej chaosu */
+.hero { min-height: min(900px, 100svh); }
+.hero-video { will-change: transform; }
+.hero-overlay { background: linear-gradient(90deg, rgba(8, 12, 16, .93) 0%, rgba(8, 12, 16, .66) 55%, rgba(8, 12, 16, .5) 100%); }
+.hero-content { align-items: flex-start; text-align: left; }
+.hero h1 { max-width: 880px; font-size: clamp(48px, 7.2vw, 96px); letter-spacing: -.045em; }
+.hero-content > p { margin-left: 0; margin-right: 0; max-width: 620px; }
+.hero-buttons { justify-content: flex-start; }
+.hero-info { gap: 34px; margin-top: 58px; }
+.hero-info div { min-width: 112px; }
+
+/* Czytelniejsza sekcja kontaktu i kart */
+.mission-card, .operation-box, .intro-card, .gallery-item { border-radius: var(--osp-radius); }
+.mission-card:hover, .operation-box:hover { transform: translateY(-5px); box-shadow: 0 20px 45px rgba(20, 24, 31, .12); }
+.gallery-item { overflow: hidden; }
+.gallery-item img { transition: transform .45s var(--osp-ease), filter .35s ease; }
+.gallery-item:hover img { transform: scale(1.035); }
+
+/* Baner cookies nie zasłania całej treści i ma czytelny układ. */
+#simple-cookie-banner { padding: 13px 20px; min-height: 58px; }
+#simple-cookie-banner p { max-width: 900px; }
+#simple-cookie-banner button { transition: transform .2s ease, background-color .2s ease; }
+#simple-cookie-banner button:hover { transform: translateY(-1px); }
+
+/* Strony kampanii i podstrony: wspólne zabezpieczenia mediów. */
+main img, section img, article img { height: auto; }
+video { background: #101318; }
+
+@media (max-width: 900px) {
+  .hero { min-height: 760px; }
+  .hero-content { align-items: center; text-align: center; }
+  .hero-content > p { margin-left: auto; margin-right: auto; }
+  .hero-buttons { justify-content: center; }
+  .hero-info { gap: 22px; }
+}
+
+@media (max-width: 750px) {
+  html { scroll-padding-top: 76px; }
+  #navbar { padding: 10px 0; }
+  #navbar .logo img { height: 64px !important; }
+  #navbar .mobile-menu { display: block; color: #fff; font-size: 24px; }
+  #navbar.scrolled .mobile-menu { color: var(--osp-ink); }
+  #navbar .nav-links { gap: 18px; }
+  #navbar .nav-links.open, #navbar .nav-links.active { display: flex; }
+  .hero { min-height: 720px; }
+  .hero h1 { font-size: clamp(42px, 13vw, 66px); line-height: .98; }
+  .hero-content > p { font-size: 1rem; line-height: 1.6; }
+  .hero-buttons { flex-direction: column; width: min(100%, 360px); gap: 10px; }
+  .hero-buttons .btn { width: 100%; justify-content: center; }
+  .hero-info { width: 100%; justify-content: center; gap: 14px; margin-top: 42px; }
+  .hero-info div { min-width: 0; flex: 1; }
+  .hero-info strong { font-size: 30px; }
+  .hero-info span { font-size: 10px; letter-spacing: 1px; }
+  #simple-cookie-banner { padding: 14px 16px; gap: 10px; }
+  #simple-cookie-banner p { font-size: 12px; }
+  #simple-cookie-banner button { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

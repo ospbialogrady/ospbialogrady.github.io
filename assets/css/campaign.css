@@ -1,0 +1,675 @@
+/* =====================================================
+   OSP BIAŁOGRĄDY
+   CAMPAIGN PAGE
+   100 000 BUTELEK
+===================================================== */
+
+
+
+/* =========================
+   CAMPAIGN HERO
+========================= */
+
+
+.campaign-hero {
+
+
+    min-height:
+    85vh;
+
+
+    display:
+    flex;
+
+
+    align-items:center;
+
+
+    position:
+    relative;
+
+
+    overflow:hidden;
+
+
+    background:
+
+
+    linear-gradient(
+    120deg,
+    rgba(0,0,0,.95),
+    rgba(215,25,32,.25)
+    ),
+
+
+    url("../img/butelki.jpg");
+
+
+    background-size:
+    cover;
+
+
+    background-position:
+    center;
+
+
+}
+
+
+
+
+
+.campaign-hero::after {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    inset:0;
+
+
+    background:
+    radial-gradient(
+    circle,
+    transparent,
+    rgba(0,0,0,.8)
+    );
+
+
+}
+
+
+
+.campaign-hero .container {
+
+
+    position:
+    relative;
+
+
+    z-index:
+    2;
+
+
+}
+
+
+
+
+.campaign-hero h1 {
+
+
+    font-size:
+    clamp(70px,12vw,160px);
+
+
+    line-height:
+    .9;
+
+
+}
+
+
+
+.campaign-hero h1 span {
+
+
+    color:
+    var(--primary);
+
+
+}
+
+
+
+
+.campaign-hero h2 {
+
+
+    margin-top:
+    30px;
+
+
+    font-size:
+    clamp(30px,5vw,55px);
+
+
+}
+
+
+
+
+.campaign-hero p {
+
+
+    max-width:
+    700px;
+
+
+    margin-top:
+    30px;
+
+
+    font-size:
+    21px;
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+   COUNTER
+========================= */
+
+
+.campaign-counter {
+
+
+    padding:
+    100px 0;
+
+
+    background:
+    #050505;
+
+
+}
+
+
+
+
+
+.counter-box {
+
+
+    display:
+    flex;
+
+
+    justify-content:
+    center;
+
+
+    align-items:center;
+
+
+    gap:
+    80px;
+
+
+    padding:
+    60px;
+
+
+    background:
+
+
+    linear-gradient(
+    145deg,
+    #171717,
+    #0a0a0a
+    );
+
+
+    border-radius:
+    35px;
+
+
+    border:
+    1px solid var(--border);
+
+
+}
+
+
+
+.counter-box div {
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+.counter-box span {
+
+
+    display:block;
+
+
+    color:
+    #aaa;
+
+
+    letter-spacing:
+    3px;
+
+
+    font-size:
+    13px;
+
+
+    margin-bottom:
+    20px;
+
+
+}
+
+
+
+
+
+.counter-box strong {
+
+
+    font-size:
+    clamp(45px,7vw,90px);
+
+
+    color:
+    var(--primary);
+
+
+}
+
+
+
+
+
+.divider {
+
+
+    width:
+    1px;
+
+
+    height:
+    120px;
+
+
+    background:
+    rgba(255,255,255,.15);
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+
+.campaign-progress {
+
+
+    height:
+    20px;
+
+
+    background:
+    #222;
+
+
+    border-radius:
+    50px;
+
+
+    margin-top:
+    50px;
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+.campaign-progress-bar {
+
+
+    width:
+    34%;
+
+
+    height:
+    100%;
+
+
+    background:
+
+
+    linear-gradient(
+    90deg,
+    #d71920,
+    #ff5960
+    );
+
+
+    border-radius:
+    inherit;
+
+
+}
+
+
+
+.center {
+
+
+    text-align:center;
+
+
+    margin-top:
+    20px;
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+   REASONS
+========================= */
+
+
+.reasons {
+
+
+    display:
+    grid;
+
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+
+    gap:
+    25px;
+
+
+    margin-top:
+    60px;
+
+
+}
+
+
+
+.reasons .card {
+
+
+    min-height:
+    300px;
+
+
+}
+
+
+
+.reasons i {
+
+
+    font-size:
+    45px;
+
+
+    color:
+    var(--primary);
+
+
+    margin-bottom:
+    25px;
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+   HELP STEPS
+========================= */
+
+
+.help {
+
+
+    padding:
+    130px 0;
+
+
+    background:
+    #090909;
+
+
+}
+
+
+
+.help-box {
+
+
+    text-align:center;
+
+
+}
+
+
+
+.steps {
+
+
+    display:
+    grid;
+
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+
+    gap:
+    30px;
+
+
+    margin-top:
+    60px;
+
+
+}
+
+
+
+
+.steps div {
+
+
+    padding:
+    40px;
+
+
+    background:
+    rgba(255,255,255,.05);
+
+
+    border:
+    1px solid var(--border);
+
+
+    border-radius:
+    25px;
+
+
+}
+
+
+
+
+.steps strong {
+
+
+    font-size:
+    70px;
+
+
+    color:
+    var(--primary);
+
+
+}
+
+
+
+
+
+/* =========================
+   CTA
+========================= */
+
+
+.cta {
+
+
+    padding:
+    150px 0;
+
+
+    text-align:center;
+
+
+    background:
+
+
+    linear-gradient(
+    135deg,
+    #d71920,
+    #750008
+    );
+
+
+}
+
+
+
+.cta h2 {
+
+
+    max-width:
+    900px;
+
+
+    margin:
+    0 auto 50px;
+
+
+    font-size:
+    clamp(35px,5vw,65px);
+
+
+}
+
+
+
+
+
+.cta .btn {
+
+
+    background:white;
+
+
+    color:black;
+
+
+}
+
+
+
+.cta .btn:hover {
+
+
+    transform:
+    translateY(-8px);
+
+
+}
+
+
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
+@media(max-width:800px){
+
+
+.counter-box {
+
+
+    flex-direction:
+    column;
+
+
+    gap:
+    35px;
+
+
+}
+
+
+
+.divider {
+
+
+    width:
+    100%;
+
+
+    height:
+    1px;
+
+
+}
+
+
+
+.reasons,
+.steps {
+
+
+    grid-template-columns:
+    1fr;
+
+
+}
+
+
+}

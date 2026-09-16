@@ -1,0 +1,3 @@
+/* Hero-specific layer kept separate for GitHub Pages compatibility. */
+.hero video { display: block; }
+.hero-video::-webkit-media-controls { display: none !important; }

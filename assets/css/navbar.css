@@ -1,0 +1,264 @@
+/* =====================================================
+   OSP BIAŁOGRĄDY
+   NAVBAR PREMIUM
+===================================================== */
+
+
+/* =========================
+   DESKTOP NAV EFFECTS
+========================= */
+
+
+.nav-container {
+
+    position:relative;
+
+}
+
+
+
+.nav-links {
+
+    transition:.4s ease;
+
+}
+
+
+
+.nav-links li {
+
+    position:relative;
+
+}
+
+
+
+.nav-links li a:not(.support-button)::after {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    left:0;
+
+
+    bottom:-8px;
+
+
+    width:0;
+
+
+    height:2px;
+
+
+    background:
+    var(--primary);
+
+
+    transition:.35s;
+
+
+}
+
+
+
+.nav-links li a:not(.support-button):hover::after {
+
+
+    width:100%;
+
+
+}
+
+
+
+
+
+/* =========================
+   SUPPORT BUTTON
+========================= */
+
+
+.support-button {
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:10px;
+
+
+    transition:.35s;
+
+
+}
+
+
+
+.support-button:hover {
+
+
+    transform:
+    translateY(-3px);
+
+
+    box-shadow:
+    0 10px 30px rgba(215,25,32,.5);
+
+
+}
+
+
+
+
+
+
+/* =========================
+   MOBILE BUTTON
+========================= */
+
+
+.mobile-menu {
+
+
+    cursor:pointer;
+
+
+    z-index:2000;
+
+
+}
+
+
+
+.mobile-menu i {
+
+
+    transition:.4s;
+
+
+}
+
+
+
+.mobile-menu.active i {
+
+
+    transform:
+    rotate(90deg);
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+   MOBILE MENU PANEL
+========================= */
+
+
+@media(max-width:750px){
+
+
+
+.nav-links {
+
+
+    position:
+    fixed;
+
+
+    top:0;
+
+
+    right:-100%;
+
+
+    width:
+    80%;
+
+
+    height:
+    100vh;
+
+
+    background:
+    rgba(5,5,5,.96);
+
+
+    backdrop-filter:
+    blur(20px);
+
+
+    display:
+    flex;
+
+
+    flex-direction:
+    column;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    gap:35px;
+
+
+    transition:
+    .5s;
+
+
+    border-left:
+    1px solid rgba(255,255,255,.1);
+
+
+}
+
+
+
+.nav-links.open {
+
+
+    right:0;
+
+
+}
+
+
+
+.nav-links a {
+
+
+    font-size:
+    22px;
+
+
+}
+
+
+
+.support-button {
+
+
+    padding:
+    15px 30px;
+
+
+}
+
+
+
+}
