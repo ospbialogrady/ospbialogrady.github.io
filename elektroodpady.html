@@ -167,25 +167,29 @@ content="https://ospbialogrady.github.io/assets/img/shareagd.png">
 }
 </script>
     <link rel="stylesheet" href="assets/css/quality-overrides.css">
+  <link rel="stylesheet" href="assets/css/site-nav.css">
 </head>
 <body>
 
 <!-- NAVBAR -->
-<nav id="navbar">
-    <div class="container nav-container">
-        <a href="/" class="logo">
-            <img src="assets/img/logo.png" alt="Logo OSP Białogrądy" style="height: 60px; width: auto;">
-        </a>
-        <button class="menu-toggle" id="mobile-menu-btn">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-        <ul class="nav-links">
-            <li><a href="#kategorie">Co przyjmujemy?</a></li>
-            <li><a href="#kalkulator">Sprawdź wagę</a></li>
-            <li><a href="#wsparcie">Wsparcie OSP</a></li>
-            <li><a href="tel:795583073" class="btn-nav"><i class="fa-solid fa-phone"></i> Zadzwoń</a></li>
-        </ul>
-    </div>
+<nav id="site-nav" class="site-nav">
+  <div class="container site-nav-inner">
+    <a class="site-brand" href="index.html"><img src="assets/img/logo.png" alt="Logo OSP Białogrądy"></a>
+    <ul class="site-nav-links" id="primary-navigation">
+      <li class="nav-main"><a href="index.html#about">O nas</a></li>
+      <li class="nav-main"><a href="index.html#missions">Działania</a></li>
+      <li class="nav-main"><a href="index.html#status">Status</a></li>
+      <li class="nav-main"><a href="index.html#gallery">Galeria</a></li>
+      <li class="nav-main"><a href="aktualnosci.html">Aktualności</a></li>
+      <li class="nav-main nav-join"><a href="dolacz.html">Dołącz do OSP</a></li>
+      <li class="nav-main nav-support"><a href="https://www.siepomaga.pl/ospbialogrady" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-heart" aria-hidden="true"></i> Wesprzyj</a></li>
+      <li class="nav-secondary"><a href="ddp.html">DDP</a></li>
+      <li class="nav-secondary"><a href="mdp.html">MDP</a></li>
+      <li class="nav-secondary"><a href="elektroodpady.html">Zbiórka elektrośmieci i kaucyjnych</a></li>
+      <li class="nav-contact"><a href="index.html#contact" title="Skontaktuj się z OSP Białogrądy" aria-label="Kontakt"><i class="fa-regular fa-envelope" aria-hidden="true"></i><span>Kontakt</span></a></li>
+    </ul>
+    <button class="site-mobile-menu" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="primary-navigation"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -398,5 +402,6 @@ content="https://ospbialogrady.github.io/assets/img/shareagd.png">
         });
     });
 </script>
+<script src="assets/js/site-nav.js"></script>
 </body>
 </html>
