@@ -31,8 +31,6 @@ for post in payload.get('data', []):
     if not post_id:
         continue
     message = re.sub(r'\s+', ' ', post.get('message', '')).strip()
-    if not message:
-        message = 'Nowa publikacja OSP Białogrądy.'
     created = post.get('created_time', '')
     try:
         dt = datetime.fromisoformat(created.replace('Z', '+00:00'))
