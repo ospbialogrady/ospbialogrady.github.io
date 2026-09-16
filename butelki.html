@@ -196,7 +196,10 @@ content="https://ospbialogrady.github.io/assets/img/optimized/sharebuteki.webp">
             .calc-box { padding: 30px 15px; }
             .pickup-box { padding: 30px 20px; }
         }
-    </style>
+    
+/* bottle-cta-motion */
+.bottle-next-step{display:flex;align-items:center;justify-content:center;gap:8px;margin:-18px auto 30px;color:var(--brand-slate);font-size:13px;font-weight:800}.bottle-next-step i{color:var(--brand-red)}.cta-pulse{animation:bottle-cta-pulse 2.8s ease-in-out infinite}@keyframes bottle-cta-pulse{0%,100%{box-shadow:0 8px 18px rgba(220,38,38,.22);transform:translateY(0)}50%{box-shadow:0 12px 26px rgba(220,38,38,.38);transform:translateY(-2px)}}@media(prefers-reduced-motion:reduce){.cta-pulse{animation:none}}
+</style>
 	<script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -281,9 +284,10 @@ content="https://ospbialogrady.github.io/assets/img/optimized/sharebuteki.webp">
         </div>
 
         <div class="hero-actions">
-            <a href="#remiza" class="btn btn-primary"><i class="fa-solid fa-dumpster"></i> Odbiór przy remizie</a>
+            <a href="#remiza" class="btn btn-primary cta-pulse"><i class="fa-solid fa-dumpster"></i> Odbiór przy remizie</a>
             <a href="#odbior" class="btn btn-outline"><i class="fa-solid fa-truck-pickup"></i> Odbiór większych ilości</a>
         </div>
+        <p class="bottle-next-step"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> Masz już pełną torbę? Sprawdź, gdzie możesz ją zostawić.</p>
 
         <!-- PUMP FILL CARD -->
         <div class="pump-card">
