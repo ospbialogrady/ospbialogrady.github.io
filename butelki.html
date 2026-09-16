@@ -231,7 +231,11 @@ content="https://ospbialogrady.github.io/assets/img/optimized/sharebuteki.webp">
         }
     </style>
 	  <link rel="stylesheet" href="assets/css/site-nav.css">
-<style id="priority1-cookie-fix">.cookie-banner{max-width:min(520px,calc(100% - 24px));bottom:16px;right:12px;left:auto;border-radius:14px;z-index:1100}@media(max-width:600px){.cookie-banner{bottom:12px;right:12px;left:12px;max-width:none}}</style><meta name="description" content="Zbiórka butelek i puszek kaucyjnych na nową motopompę dla OSP Białogrądy."><link rel="canonical" href="https://ospbialogrady.github.io/butelki.html"></head>
+<style id="priority1-cookie-fix">.cookie-banner{max-width:min(520px,calc(100% - 24px));bottom:16px;right:12px;left:auto;border-radius:14px;z-index:1100}@media(max-width:600px){.cookie-banner{bottom:12px;right:12px;left:12px;max-width:none}}</style><meta name="description" content="Zbiórka butelek i puszek kaucyjnych na nową motopompę dla OSP Białogrądy."><link rel="canonical" href="https://ospbialogrady.github.io/butelki.html"><style id="pickup-card-style">
+.pickup-info-card{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;margin-top:28px;padding:24px;border:1px solid rgba(20,24,31,.1);border-radius:22px;background:linear-gradient(135deg,#fff 0%,#f7f8fa 100%);box-shadow:0 14px 30px rgba(20,24,31,.08)}
+.pickup-info-icon{width:52px;height:52px;display:grid;place-items:center;border-radius:16px;background:rgba(200,22,29,.1);color:#c8161d;font-size:22px}
+.pickup-info-card h2{margin:0 0 5px;font-size:24px;color:#17202b}.pickup-info-card .pickup-place{margin:0 0 12px;color:#c8161d;font-weight:800}.pickup-info-card .pickup-text{margin:0 0 14px;color:#66717e;font-size:14px;line-height:1.6}.pickup-info-card .pickup-address{display:block;margin-bottom:14px;color:#17202b;font-weight:700}.pickup-info-actions{display:flex;gap:10px;flex-wrap:wrap}.pickup-info-actions a{display:inline-flex;align-items:center;gap:7px;padding:10px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:800}.pickup-info-actions .pickup-map{background:#c8161d;color:#fff}.pickup-info-actions .pickup-call{border:1px solid rgba(20,24,31,.16);color:#17202b;background:#fff}@media(max-width:600px){.pickup-info-card{grid-template-columns:1fr;padding:20px}.pickup-info-actions a{width:100%;justify-content:center}}
+</style></head>
 <body>
 
 <!-- NAVBAR -->
@@ -402,21 +406,19 @@ content="https://ospbialogrady.github.io/assets/img/optimized/sharebuteki.webp">
 <section class="action-section" id="remiza">
     <div class="container">
         <!-- PUNKT STACJONARNY -->
-        <div class="location-card">
-            <i class="fa-solid fa-warehouse"></i>
-            <h2 style="font-size:26px; font-weight:900; color:var(--brand-navy); margin-bottom:6px;">Główny Punkt Zbiórki</h2>
-            <p style="font-size: 17px; color: var(--brand-red); font-weight:800; margin-bottom: 6px;">Remiza OSP Białogrądy</p>
-            <p style="color: var(--text-muted); font-size:14px;">Przywieź butelki i puszki do remizy po wcześniejszym kontakcie telefonicznym lub SMS.</p>
-            <div class="pickup-contact-details" style="margin-top:16px; padding:14px 16px; border-radius:14px; background:rgba(255,255,255,.72); border:1px solid rgba(20,24,31,.08);">
-                <strong style="display:block; color:var(--brand-navy); margin-bottom:4px;">Adres punktu zbiórki</strong>
-                <span style="display:block; color:var(--text-muted); margin-bottom:10px;">Białogrądy 44, 19-200 Grajewo</span>
-                <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                    <a href="https://www.google.com/maps/search/?api=1&query=OSP%20Bia%C5%82ogr%C4%85dy%2C%20Bia%C5%82ogr%C4%85dy%2044%2C%2019-200%20Grajewo" target="_blank" rel="noopener noreferrer" class="btn btn-light" style="font-size:14px; padding:10px 14px;"><i class="fa-solid fa-map-location-dot"></i> Otwórz mapę</a>
-                    <a href="tel:882505623" class="btn btn-light" style="font-size:14px; padding:10px 14px;"><i class="fa-solid fa-phone"></i> Umów odbiór</a>
+        <div class="pickup-info-card">
+            <div class="pickup-info-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
+            <div>
+                <h2>Główny punkt zbiórki</h2>
+                <p class="pickup-place">Remiza OSP Białogrądy</p>
+                <p class="pickup-text">Przywieź butelki i puszki po wcześniejszym kontakcie telefonicznym lub SMS. Dzięki temu druhowie będą mogli potwierdzić dogodny termin.</p>
+                <span class="pickup-address"><i class="fa-solid fa-map-pin" aria-hidden="true"></i> Białogrądy 44, 19-200 Grajewo</span>
+                <div class="pickup-info-actions">
+                    <a class="pickup-map" href="https://www.google.com/maps/search/?api=1&query=OSP%20Bia%C5%82ogr%C4%85dy%2C%20Bia%C5%82ogr%C4%85dy%2044%2C%2019-200%20Grajewo" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> Otwórz mapę</a>
+                    <a class="pickup-call" href="tel:882505623"><i class="fa-solid fa-phone" aria-hidden="true"></i> Umów odbiór</a>
                 </div>
             </div>
         </div>
-
         <!-- ODBIÓR Z POSESJI -->
         <div class="pickup-box" id="odbior">
             <div class="trust-badge" style="background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.2); color:#fff; margin-bottom:15px;">
