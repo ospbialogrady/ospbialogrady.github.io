@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona nie znaleziona (Błąd 404) | OSP BIAŁOGRĄDY</title>
+    
+    <!-- Nowoczesne fonty - Oswald do wielkich napisów, Plus Jakarta dla czytelności, Share Tech Mono dla klimatu terminala -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <style>
+        /* --- RESET I BAZA --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; /* Ukrywamy domyślny kursor */ }
+        body {
+            background: #050505; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow: hidden; height: 100vh; width: 100vw;
+        }
+
+        /* --- NIESTANDARDOWY KURSOR I ŚWIATŁO --- */
+        #cursor, #cursor-blur {
+            position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
+            border-radius: 50%; pointer-events: none; z-index: 9999;
+        }
+        #cursor { 
+            width: 8px; height: 8px; background: #dc2626; 
+            box-shadow: 0 0 15px #dc2626; transition: width 0.2s, height 0.2s, background 0.2s; 
+        }
+        #cursor-blur { 
+            width: 500px; height: 500px; 
+            background: radial-gradient(circle, rgba(220,38,38,0.12) 0%, transparent 60%); 
+        }
+
+        /* --- TŁO Z EFEKTEM PARALAKSY --- */
+        .bg-layer {
+            position: absolute; top: -5%; left: -5%; width: 110%; height: 110%;
+            background: url('assets/img/historia.jpg') center/cover no-repeat;
+            filter: grayscale(60%) brightness(0.15) contrast(1.5) sepia(20%) hue-rotate(-20deg);
+            z-index: 1; transition: transform 0.1s ease-out;
+        }
+        
+        /* --- SYSTEM CZĄSTECZEK (CANVAS) --- */
+        canvas { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            z-index: 2; mix-blend-mode: screen; 
+        }
+
+        /* --- NAKŁADKA HOLOGRAFICZNA / SIATKA --- */
+        .grid-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px; z-index: 3; pointer-events: none;
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.9);
+        }
+
+        /* --- GŁÓWNY UKŁAD --- */
+        .ui-wrapper {
+            position: relative; z-index: 10; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; height: 100%; padding: 2rem;
+            perspective: 1000px; /* Do efektu 3D panelu */
+        }
+
+        /* --- PŁONĄCY, ZNIEKSZTAŁCONY TEKST (SVG FILTER + GLITCH) --- */
+        .glitch-wrapper { position: relative; display: inline-block; margin-bottom: 2rem; }
+        .error-code {
+            font-family: 'Oswald', sans-serif; font-size: clamp(120px, 15vw, 250px); 
+            font-weight: 700; line-height: 1; letter-spacing: -5px;
+            background: linear-gradient(180deg, #ffb400 0%, #ff4800 40%, #dc2626 80%, #1a0000 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            /* Magia: używamy filtra SVG do realistycznego zniekształcenia jak gorące powietrze/ogień */
+            filter: url(#fire-displacement); 
+            position: relative; text-shadow: 0 0 40px rgba(220,38,38,0.5);
+        }
+        
+        /* Cyfrowe zakłócenia (Glitch) */
+        .error-code::before, .error-code::after {
+            content: '404'; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: inherit; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            opacity: 0.7; mix-blend-mode: screen;
+        }
+        .error-code::before { left: 5px; text-shadow: -2px 0 red; animation: glitch 2s infinite linear alternate-reverse; }
+        .error-code::after { left: -5px; text-shadow: 2px 0 blue; animation: glitch 3s infinite linear alternate-reverse; }
+
+        @keyframes glitch {
+            0% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 2px); }
+            20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -2px); }
+            40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 2px); }
+            60% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -2px); }
+            80% { clip-path: inset(10% 0 70% 0); transform: translate(-2px, 2px); }
+            100% { clip-path: inset(30% 0 50% 0); transform: translate(2px, -2px); }
+        }
+
+        /* --- INTERFEJS TERMINALA (GLASSMORPHISM + 3D) --- */
+        .terminal-panel {
+            background: rgba(10, 10, 10, 0.4); backdrop-filter: blur(20px);
+            border: 1px solid rgba(220, 38, 38, 0.2); border-radius: 4px;
+            padding: 40px; max-width: 650px; width: 100%; text-align: left;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.8), inset 0 0 30px rgba(220,38,38,0.05);
+            transform-style: preserve-3d; transition: transform 0.1s ease-out;
+            position: relative; overflow: hidden;
+        }
+        
+        /* Animowana linia skanera na panelu */
+        .terminal-panel::after {
+            content: ''; position: absolute; top: -50%; left: 0; width: 100%; height: 50%;
+            background: linear-gradient(to bottom, transparent, rgba(220, 38, 38, 0.1));
+            animation: scanline 4s infinite linear; pointer-events: none;
+        }
+        @keyframes scanline { 0% { top: -50%; } 100% { top: 150%; } }
+
+        .terminal-header {
+            display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 12px; margin-bottom: 25px; font-family: 'Share Tech Mono', monospace;
+            color: #dc2626; font-size: 13px; letter-spacing: 2px;
+        }
+        .terminal-header span.blink { animation: blink 1.2s infinite; color: #ff4800; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        h2 { font-size: 2.2rem; margin-bottom: 15px; text-transform: uppercase; font-weight: 800; letter-spacing: 1px; }
+        p { color: #a3a3a3; font-size: 1.1rem; line-height: 1.7; margin-bottom: 35px; font-weight: 400; }
+
+        /* --- CYBER ZAAWANSOWANE PRZYCISKI --- */
+        .btn-container { display: flex; gap: 20px; flex-wrap: wrap; }
+        
+        .cyber-btn {
+            position: relative; padding: 16px 45px; background: transparent;
+            border: 1px solid #dc2626; color: #fff; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 2px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px;
+            overflow: hidden; transition: 0.3s; z-index: 1; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 10px; cursor: none;
+        }
+        .cyber-btn::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 0%; height: 100%;
+            background: #dc2626; z-index: -1; transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .cyber-btn:hover::before { width: 100%; }
+        .cyber-btn:hover { box-shadow: 0 0 25px rgba(220, 38, 38, 0.5); color: #fff; transform: translateY(-2px); }
+
+        .cyber-btn-outline { border-color: rgba(255, 255, 255, 0.2); color: #94a3b8; }
+        .cyber-btn-outline::before { background: rgba(255, 255, 255, 0.1); }
+        .cyber-btn-outline:hover { border-color: #fff; color: #fff; box-shadow: 0 0 15px rgba(255,255,255,0.2); }
+
+        /* --- PASEK INFORMACYJNY (TICKER) --- */
+        .ticker-wrap {
+            position: absolute; bottom: 0; left: 0; width: 100%; height: 45px;
+            background: #dc2626; color: #000; display: flex; align-items: center;
+            font-family: 'Share Tech Mono', monospace; font-size: 15px; font-weight: bold;
+            overflow: hidden; z-index: 20; white-space: nowrap; box-shadow: 0 -5px 20px rgba(220,38,38,0.3);
+        }
+        .ticker-move { display: inline-block; animation: ticker 25s linear infinite; padding-left: 100%; }
+        .ticker-item { padding: 0 3rem; }
+        @keyframes ticker { 100% { transform: translateX(-100%); } }
+
+        /* Ukryty kontener dla filtrów SVG */
+        svg.hidden { position: absolute; width: 0; height: 0; }
+
+        @media (max-width: 768px) {
+            .terminal-panel { padding: 25px; }
+            h2 { font-size: 1.5rem; }
+            .btn-container { flex-direction: column; width: 100%; }
+            .cyber-btn { width: 100%; justify-content: center; }
+            #cursor, #cursor-blur { display: none; } /* Wyłącz custom cursor na mobilkach */
+            * { cursor: auto; }
+        }
+    </style>
+    <link rel="stylesheet" href="assets/css/quality-overrides.css">
+</head>
+<body>
+
+    <!-- ZAAWANSOWANY FILTR SVG: TWORZY EFEKT GORĄCEGO POWIETRZA / OGNIA -->
+    <svg class="hidden">
+        <filter id="fire-displacement">
+            <feTurbulence type="fractalNoise" baseFrequency="0.015 0.05" numOctaves="3" result="noise" id="turbulence">
+                <!-- Animacja atrybutów filtra za pomocą natywnego SMIL -->
+                <animate attributeName="baseFrequency" values="0.015 0.05; 0.02 0.08; 0.015 0.05" dur="0.15s" repeatCount="indefinite" />
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="12" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+    </svg>
+
+    <!-- Tło ze zdjęciem -->
+    <div class="bg-layer" id="bg"></div>
+    
+    <!-- Silnik cząsteczek Canvas -->
+    <canvas id="particles"></canvas>
+    
+    <!-- Holograficzna siatka -->
+    <div class="grid-overlay"></div>
+    
+    <!-- Autorski kursor -->
+    <div id="cursor"></div>
+    <div id="cursor-blur"></div>
+
+    <div class="ui-wrapper" id="ui">
+        <!-- Zniekształcony napis 404 -->
+        <div class="glitch-wrapper">
+            <div class="error-code">404</div>
+        </div>
+        
+        <!-- Panel 3D -->
+        <div class="terminal-panel" id="panel">
+            <div class="terminal-header">
+                <span>STATUS SERWISU: STRONA NIE ZNALEZIONA</span>
+                <span class="blink">SYSTEM SPRAWNY</span>
+            </div>
+            
+            <!-- Jasny, zrozumiały nagłówek dla każdego -->
+            <h2 id="scramble-text">BŁĄD 404 – BRAK STRONY</h2>
+            
+            <p>
+                Szukana strona nie istnieje lub została przeniesiona pod inny adres. Spokojnie – serwery i strona internetowa Ochotniczej Straży Pożarnej w Białogrądach działają w pełni sprawnie. Żadne systemy ratownicze nie ucierpiały.
+            </p>
+            
+            <div class="btn-container">
+                <a href="/" class="cyber-btn">
+                    <i class="fa-solid fa-house"></i> Strona Główna
+                </a>
+                <a href="/#contact" class="cyber-btn cyber-btn-outline">
+                    <i class="fa-solid fa-envelope"></i> Skontaktuj się z nami
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pasek alarmowy na dole -->
+    <div class="ticker-wrap">
+        <div class="ticker-move">
+            <span class="ticker-item">/// OSP BIAŁOGRĄDY ///</span>
+            <span class="ticker-item">BŁĄD 404: STRONA NIE ZNALEZIONA ///</span>
+            <span class="ticker-item">WZYWAMY DO POWROTU NA STRONĘ GŁÓWNĄ ///</span>
+            <span class="ticker-item">WSZYSTKIE SYSTEMY BEZPIECZNE ///</span>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. OBSŁUGA NIESTANDARDOWEGO KURSORA I PODŚWIETLENIA ---
+        const cursor = document.getElementById('cursor');
+        const cursorBlur = document.getElementById('cursor-blur');
+        const interactiveElements = document.querySelectorAll('a, button');
+
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        
+        if (!isTouchDevice) {
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                
+                cursorBlur.animate({
+                    left: `${e.clientX}px`,
+                    top: `${e.clientY}px`
+                }, { duration: 500, fill: "forwards" });
+            });
+
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.transform = 'translate(-50%, -50%) scale(3)';
+                    cursor.style.backgroundColor = 'transparent';
+                    cursor.style.border = '1px solid #dc2626';
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                    cursor.style.backgroundColor = '#dc2626';
+                    cursor.style.border = 'none';
+                });
+            });
+        }
+
+        // --- 2. ZAAWANSOWANA PARALAKSA 3D (TŁO + PANEL) ---
+        const bg = document.getElementById('bg');
+        const panel = document.getElementById('panel');
+        
+        document.addEventListener('mousemove', (e) => {
+            if (isTouchDevice || window.innerWidth < 768) return;
+
+            const xAxis = (window.innerWidth / 2 - e.pageX) / window.innerWidth;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / window.innerHeight;
+            
+            bg.style.transform = `translate(${xAxis * 30}px, ${yAxis * 30}px) scale(1.05)`;
+            panel.style.transform = `rotateY(${-xAxis * 10}deg) rotateX(${yAxis * 10}deg)`;
+        });
+
+        document.addEventListener('mouseleave', () => {
+            bg.style.transform = `translate(0px, 0px) scale(1)`;
+            panel.style.transform = `rotateY(0deg) rotateX(0deg)`;
+        });
+
+        // --- 3. EFEKT "HACKER TYPER" (DEKODOWANIE TEKSTU) ---
+        class TextScramble {
+            constructor(el) {
+                this.el = el;
+                this.chars = '!<>-_\/[]{}—=+*^?#________';
+                this.update = this.update.bind(this);
+            }
+            setText(newText) {
+                const oldText = this.el.innerText;
+                const length = Math.max(oldText.length, newText.length);
+                const promise = new Promise((resolve) => this.resolve = resolve);
+                this.queue = [];
+                for (let i = 0; i < length; i++) {
+                    const from = oldText[i] || '';
+                    const to = newText[i] || '';
+                    const start = Math.floor(Math.random() * 40);
+                    const end = start + Math.floor(Math.random() * 40);
+                    this.queue.push({ from, to, start, end });
+                }
+                cancelAnimationFrame(this.frameRequest);
+                this.frame = 0;
+                this.update();
+                return promise;
+            }
+            update() {
+                let output = '';
+                let complete = 0;
+                for (let i = 0, n = this.queue.length; i < n; i++) {
+                    let { from, to, start, end, char } = this.queue[i];
+                    if (this.frame >= end) {
+                        complete++;
+                        output += to;
+                    } else if (this.frame >= start) {
+                        if (!char || Math.random() < 0.28) {
+                            char = this.randomChar();
+                            this.queue[i].char = char;
+                        }
+                        output += `<span style="color: #dc2626">${char}</span>`;
+                    } else {
+                        output += from;
+                    }
+                }
+                this.el.innerHTML = output;
+                if (complete === this.queue.length) {
+                    this.resolve();
+                } else {
+                    this.frameRequest = requestAnimationFrame(this.update);
+                    this.frame++;
+                }
+            }
+            randomChar() {
+                return this.chars[Math.floor(Math.random() * this.chars.length)];
+            }
+        }
+
+        const scrambleEl = document.getElementById('scramble-text');
+        const fx = new TextScramble(scrambleEl);
+        
+        setTimeout(() => { fx.setText('BŁĄD 404 – STRONA NIE ZNALEZIONA'); }, 500);
+        
+        setInterval(() => {
+            fx.setText('SPRAWDŹ ADRES LUB WRÓĆ DO BAZY');
+            setTimeout(() => fx.setText('BŁĄD 404 – STRONA NIE ZNALEZIONA'), 4000);
+        }, 12000);
+
+        // --- 4. ZAAWANSOWANY SILNIK CZĄSTECZEK OGNIA (HTML5 CANVAS) ---
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        let particlesArray;
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + Math.random() * 300;
+                this.size = Math.random() * 3.5 + 1;
+                this.speedY = Math.random() * -4 - 1;
+                this.speedX = Math.random() * 2.5 - 1.25;
+                this.color = ['#ff4800', '#ffb400', '#dc2626', '#ffedd5'][Math.floor(Math.random() * 4)];
+                this.opacity = Math.random() * 0.8 + 0.2;
+                this.sinValue = Math.random();
+            }
+            update() {
+                this.y += this.speedY;
+                this.sinValue += 0.05;
+                this.x += this.speedX + Math.sin(this.sinValue) * 0.5; 
+                
+                if (this.size > 0.1) this.size -= 0.015;
+                
+                if (this.y < 0 || this.size <= 0.1) {
+                    this.y = canvas.height + 50;
+                    this.x = Math.random() * canvas.width;
+                    this.size = Math.random() * 3.5 + 1;
+                    this.opacity = Math.random() * 0.8 + 0.2;
+                }
+            }
+            draw() {
+                ctx.globalAlpha = this.opacity;
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = this.color;
+            }
+        }
+
+        function initParticles() {
+            particlesArray = [];
+            const particleCount = window.innerWidth > 768 ? 180 : 80;
+            for (let i = 0; i < particleCount; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            requestAnimationFrame(animateParticles);
+        }
+
+        initParticles();
+        animateParticles();
+    </script>
+</body>
+</html>
