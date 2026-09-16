@@ -17,7 +17,7 @@ if not TOKEN:
 
 DATA.mkdir(parents=True, exist_ok=True)
 IMAGES.mkdir(parents=True, exist_ok=True)
-fields = 'id,message,created_time,full_picture,permalink_url'
+fields = 'id,message,created_time,full_picture,permalink_url,attachments{media{image{src}},subattachments{media{image{src}}}}'
 url = f'https://graph.facebook.com/{API_VERSION}/{PAGE_ID}/feed?fields={fields}&limit=25&access_token={quote(TOKEN)}'
 req = Request(url, headers={'User-Agent': 'OSP-Bialogrady-News/1.0'})
 with urlopen(req, timeout=30) as response:
@@ -43,6 +43,20 @@ for post in payload.get('data', []):
     safe_id = re.sub(r'[^a-zA-Z0-9_-]', '_', post_id)
     image_path = ''
     image_url = post.get('full_picture')
+    if not image_url:
+        attachments = post.get('attachments', {}).get('data', [])
+        for attachment in attachments:
+            media = attachment.get('media', {}) or {}
+            image_url = (media.get('image', {}) or {}).get('src')
+            if image_url:
+                break
+            for nested in (attachment.get('subattachments', {}) or {}).get('data', []):
+                nested_media = nested.get('media', {}) or {}
+                image_url = (nested_media.get('image', {}) or {}).get('src')
+                if image_url:
+                    break
+            if image_url:
+                break
     if image_url:
         target = IMAGES / f'{safe_id}.jpg'
         try:
