@@ -445,31 +445,6 @@ content="https://ospbialogrady.github.io/assets/img/sharebuteki.png">
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // --- OBSŁUGA MOBILNEGO MENU ---
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        const menuIcon = menuBtn.querySelector('i');
-
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            
-            if(navLinks.classList.contains('active')) {
-                menuIcon.classList.remove('fa-bars');
-                menuIcon.classList.add('fa-xmark');
-            } else {
-                menuIcon.classList.remove('fa-xmark');
-                menuIcon.classList.add('fa-bars');
-            }
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuIcon.classList.remove('fa-xmark');
-                menuIcon.classList.add('fa-bars');
-            });
-        });
-
         // --- DANE ZBIÓRKI I ANIMACJE ---
         const currentItems = 512; 
         const targetItems = 100000;
