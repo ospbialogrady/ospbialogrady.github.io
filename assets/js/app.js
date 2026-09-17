@@ -24,21 +24,7 @@ gsap.registerPlugin(ScrollTrigger);
 const navbar = document.querySelector("#navbar");
 
 
-window.addEventListener("scroll",()=>{
-
-
-    if(window.scrollY > 50){
-
-        navbar.classList.add("scrolled");
-
-    }else{
-
-        navbar.classList.remove("scrolled");
-
-    }
-
-
-});
+if(navbar){ window.addEventListener("scroll",()=>{ if(window.scrollY > 50){ navbar.classList.add("scrolled"); } else { navbar.classList.remove("scrolled"); } }); }
 
 
 
@@ -60,7 +46,7 @@ document.querySelector(".nav-links");
 
 
 
-if(mobileButton){
+if(mobileButton && navLinks){
 
 
 mobileButton.addEventListener("click",()=>{
