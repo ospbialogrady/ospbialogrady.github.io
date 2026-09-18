@@ -72,55 +72,14 @@ mobileButton.addEventListener("click",()=>{
 ========================= */
 
 
-const heroTimeline =
-gsap.timeline();
-
-
-
-heroTimeline
-.from(".hero-label",{
-
-    opacity:0,
-    y:30,
-    duration:1
-
-})
-
-.from(".hero h1",{
-
-    opacity:0,
-    y:50,
-    duration:1
-
-},"-=0.5")
-
-
-.from(".hero-content p",{
-
-    opacity:0,
-    y:40,
-    duration:1
-
-},"-=0.5")
-
-
-.from(".hero-buttons",{
-
-    opacity:0,
-    y:30,
-    duration:1
-
-},"-=0.5")
-
-
-.from(".hero-info div",{
-
-    opacity:0,
-    y:30,
-    stagger:.2,
-    duration:.8
-
-},"-=0.5");
+// Hero pozostaje widoczny od razu. Nie animujemy go przy wejściu ani podczas
+// przewijania, ponieważ na stronie głównej ma zachowywać stabilną wysokość.
+gsap.set(".hero-content, .hero-content h1, .hero-content > p, .hero-buttons, .hero-info div", {
+    clearProps: "all",
+    opacity: 1,
+    y: 0,
+    visibility: "visible"
+});
 
 
 
