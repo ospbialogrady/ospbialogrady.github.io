@@ -136,7 +136,7 @@ heroTimeline
 
 const revealElements =
 document.querySelectorAll(
-".mission-card, .why-item, .operation-box, .intro-card, .number-card, .gallery-item"
+".mission-card, .why-item, .operation-box, .intro-card, .number-card, .gallery-item, .home-project, .home-equipment-image, .home-equipment-copy, .home-origin-copy, .home-origin-visual"
 );
 
 
