@@ -294,7 +294,8 @@ content="https://ospbialogrady.github.io/assets/img/sharebuteki.png">
                 <div class="progress-bar-fill" id="progressBar"></div>
             </div>
             <div class="counter-display">
-                <span class="current" id="counter">0</span> / 100 000 <small style="font-size:15px; color:var(--text-muted); font-weight:600;">opakowań (Cel: 50 000 zł)</small>
+                <span class="current" id="counter">0</span> <small style="font-size:15px; color:var(--text-muted); font-weight:600;">zebranych opakowań</small><br>
+                <span class="current" id="amountCounter">0,00 zł</span> <small style="font-size:15px; color:var(--text-muted); font-weight:600;">zebrane z kaucji · <span id="goalPercent">0,00%</span> celu 50 000 zł</small>
             </div>
         </div>
     </div>
@@ -446,16 +447,20 @@ content="https://ospbialogrady.github.io/assets/img/sharebuteki.png">
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         // --- DANE ZBIÓRKI I ANIMACJE ---
-        const currentItems = 50000; 
-        const targetItems = 100000;
-        const percentage = Math.min((currentItems / targetItems) * 100, 100);
+        const currentItems = 826;
+        const currentAmount = 321.80;
+        const targetAmount = 50000;
+        const percentage = Math.min((currentAmount / targetAmount) * 100, 100);
 
         setTimeout(() => {
             document.getElementById('pumpContainer').style.setProperty('--fill-percent', percentage + '%');
             document.getElementById('progressBar').style.width = percentage + '%';
 
+            document.getElementById('goalPercent').textContent = percentage.toLocaleString('pl-PL', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '%';
             let count = 0;
+            let amount = 0;
             const counterEl = document.getElementById('counter');
+            const amountEl = document.getElementById('amountCounter');
             const step = Math.ceil(currentItems / 60);
 
             const timer = setInterval(() => {
@@ -465,6 +470,8 @@ content="https://ospbialogrady.github.io/assets/img/sharebuteki.png">
                     clearInterval(timer);
                 }
                 counterEl.textContent = count.toLocaleString('pl-PL');
+                amount = (count / currentItems) * currentAmount;
+                amountEl.textContent = amount.toLocaleString('pl-PL', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' zł';
             }, 25);
         }, 300);
 
@@ -484,7 +491,7 @@ content="https://ospbialogrady.github.io/assets/img/sharebuteki.png">
             if(val < 0) val = 0;
 
             const cash = (val * 0.5).toFixed(2).replace('.', ',');
-            const percent = ((val / 100000) * 100).toFixed(2);
+            const percent = (((val * 0.5) / 50000) * 100).toFixed(2);
 
             document.getElementById('cashVal').textContent = cash + ' zł';
             document.getElementById('percentVal').textContent = percent + '%';
