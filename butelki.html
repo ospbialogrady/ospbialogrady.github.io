@@ -207,6 +207,13 @@ content="https://ospbialogrady.github.io/assets/img/optimized/sharebuteki.webp">
     
 /* bottle-cta-motion */
 .bottle-next-step{display:flex;align-items:center;justify-content:center;gap:8px;margin:-18px auto 30px;color:var(--brand-slate);font-size:13px;font-weight:800}.bottle-next-step i{color:var(--brand-red)}.cta-pulse{animation:bottle-cta-pulse 2.8s ease-in-out infinite}@keyframes bottle-cta-pulse{0%,100%{box-shadow:0 8px 18px rgba(220,38,38,.22);transform:translateY(0)}50%{box-shadow:0 12px 26px rgba(220,38,38,.38);transform:translateY(-2px)}}@media(prefers-reduced-motion:reduce){.cta-pulse{animation:none}}
+/* Campaign redesign: a clear, trustworthy progress dashboard */
+.hero{padding:150px 0 90px;background:radial-gradient(circle at 82% 28%,rgba(220,38,38,.1),transparent 30%),linear-gradient(135deg,#f8fafc 0%,#fff 58%,#fff7f7 100%)}
+.trust-badge{background:#14181f;border-color:#14181f;color:#fff}.hero-title{max-width:900px;margin:0 auto 18px;font-size:clamp(36px,6vw,76px);line-height:.98;letter-spacing:-3px}.hero-subtitle{max-width:700px;font-size:17px}.alert-banner{max-width:900px;border:0;border-left:5px solid #f59e0b;background:#fff;box-shadow:0 14px 35px rgba(15,23,42,.08)}
+.pump-card{max-width:1040px;padding:26px;border:0;background:#14181f;box-shadow:0 25px 60px rgba(15,23,42,.18)}.pump-container{max-width:900px;margin-bottom:24px;aspect-ratio:16/7;border-radius:18px;overflow:hidden;background:#202936}.pump-bg{filter:grayscale(1) opacity(.25)}.progress-box{max-width:900px;margin-bottom:18px;background:#3b4654}.progress-bar-fill{background:linear-gradient(90deg,#ef4444,#fb7185);box-shadow:0 0 18px rgba(239,68,68,.4)}
+.campaign-stats{max-width:900px;grid-template-columns:1.15fr 1fr;gap:12px;margin-top:0}.campaign-stat{border:1px solid rgba(255,255,255,.12);background:#202936;text-align:left;padding:20px 22px}.campaign-stat strong{color:#fff}.campaign-stat-main strong{color:#ff6970}.campaign-stat span:last-child{color:#aeb8c4}.campaign-goal-note{color:#aeb8c4}.campaign-goal-note strong{color:#fff}.campaign-progress-summary{max-width:900px;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px auto 0}.campaign-progress-summary>div{padding:13px 16px;border-radius:12px;background:#202936;text-align:left}.campaign-progress-summary strong{display:block;color:#fff;font-size:22px}.campaign-progress-summary span{color:#aeb8c4;font-size:11px;font-weight:700}
+.about-section,.rules-section{background:#fff}.about-card{background:#f8fafc;border:0;box-shadow:0 10px 26px rgba(15,23,42,.05)}.calc-section,.action-section{background:#f8fafc}
+@media(max-width:768px){.hero{padding:116px 0 58px}.hero-title{letter-spacing:-1.8px}.pump-card{padding:14px}.pump-container{aspect-ratio:4/3}.campaign-stats,.campaign-progress-summary{grid-template-columns:1fr}.campaign-stat,.campaign-progress-summary>div{text-align:center}}
 </style>
 	<script type="application/ld+json">
 {
@@ -319,7 +326,11 @@ content="https://ospbialogrady.github.io/assets/img/optimized/sharebuteki.webp">
                     <span>zebrane z kaucji</span>
                 </div>
             </div>
-            <p class="campaign-goal-note">Cel zbiórki: <strong>100 000 opakowań</strong> i zakup nowej motopompy.</p>
+            <div class="campaign-progress-summary">
+                <div><strong id="itemsPercent">0,00%</strong><span>realizacji celu opakowań</span></div>
+                <div><strong id="moneyPercent">0,00%</strong><span>realizacji celu finansowego</span></div>
+            </div>
+            <p class="campaign-goal-note">Cel: <strong>100 000 opakowań</strong> oraz <strong>50 000 zł</strong> na nową motopompę.</p>
         </div>
     </div>
 </header>
@@ -479,11 +490,15 @@ content="https://ospbialogrady.github.io/assets/img/optimized/sharebuteki.webp">
         const currentItems = 826; 
         const currentAmount = 321.80;
         const targetItems = 100000;
+        const targetAmount = 50000;
         const percentage = Math.min((currentItems / targetItems) * 100, 100);
+        const moneyPercentage = Math.min((currentAmount / targetAmount) * 100, 100);
 
         setTimeout(() => {
             document.getElementById('pumpContainer').style.setProperty('--fill-percent', percentage + '%');
             document.getElementById('progressBar').style.width = percentage + '%';
+            document.getElementById('itemsPercent').textContent = percentage.toLocaleString('pl-PL', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '%';
+            document.getElementById('moneyPercent').textContent = moneyPercentage.toLocaleString('pl-PL', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '%';
 
             let count = 0;
             const counterEl = document.getElementById('counter');
