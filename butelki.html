@@ -6,11 +6,11 @@
     <title>Zbiórka Kaucyjna na Motopompę | OSP Białogrądy</title>
     
     <!-- Favicon / Ikona strony w karcie przeglądarki -->
-    <link rel="icon" type="image/png" href="assets/img/optimized/logo.webp">
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
     
 	<meta property="og:type" content="website">
 <link rel="manifest" href="manifest.webmanifest">
-
+<link rel="canonical" href="https://ospbialogrady.github.io/butelki.html">
 <meta property="og:title"
 content="Zbiórka 100 000 butelek | OSP Białogrądy">
 
@@ -18,7 +18,7 @@ content="Zbiórka 100 000 butelek | OSP Białogrądy">
 content="Oddaj butelki i puszki kaucyjne, aby pomóc OSP Białogrądy w zakupie nowej motopompy pożarniczej.">
 
 <meta property="og:image"
-content="https://ospbialogrady.github.io/assets/img/optimized/sharebuteki.webp">
+content="https://ospbialogrady.github.io/assets/img/sharebuteki.png">
 
 <meta property="og:url"
 content="https://ospbialogrady.github.io/butelki.html">
@@ -32,12 +32,12 @@ content="Zbiórka 100 000 butelek | OSP Białogrądy">
 content="Pomóż nam zebrać środki na nową motopompę, przekazując opakowania kaucyjne.">
 
 <meta name="twitter:image"
-content="https://ospbialogrady.github.io/assets/img/optimized/sharebuteki.webp">
+content="https://ospbialogrady.github.io/assets/img/sharebuteki.png">
 
     <!-- Fonty i Ikony -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    
+    <link rel="canonical" href="https://ospbialogrady.github.io/butelki.html">
     <style>
         :root {
             --brand-red: #dc2626;
@@ -100,14 +100,6 @@ content="https://ospbialogrady.github.io/assets/img/optimized/sharebuteki.webp">
         .progress-box { width: 100%; max-width: 680px; margin: 0 auto 15px; background: #e2e8f0; padding: 4px; border-radius: 50px; }
         .progress-bar-fill { height: 16px; width: 0%; background: linear-gradient(90deg, #dc2626, #ef4444); border-radius: 50px; transition: width 1.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .counter-display { font-size: clamp(24px, 3.8vw, 38px); font-weight: 900; color: var(--brand-navy); }
-        .campaign-stats { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin:20px auto 0; max-width:680px; }
-        .campaign-stat { padding:18px 14px; border:1px solid var(--border); border-radius:16px; background:#f8fafc; text-align:center; }
-        .campaign-stat strong { display:block; font-size:clamp(25px,4vw,38px); line-height:1.1; color:var(--brand-navy); }
-        .campaign-stat-main strong { color:var(--brand-red); }
-        .campaign-stat span:last-child { display:block; margin-top:5px; color:var(--text-muted); font-size:12px; font-weight:700; }
-        .campaign-goal-note { margin:15px 0 0; color:var(--text-muted); font-size:13px; text-align:center; }
-        .campaign-goal-note strong { color:var(--brand-navy); }
-        @media (max-width:600px) { .campaign-stats { grid-template-columns:1fr; gap:10px; } .campaign-stat { padding:14px 12px; } }
         .counter-display span.current { color: var(--brand-red); }
 
         /* SEKCJA: O ZBIÓRCE */
@@ -204,17 +196,7 @@ content="https://ospbialogrady.github.io/assets/img/optimized/sharebuteki.webp">
             .calc-box { padding: 30px 15px; }
             .pickup-box { padding: 30px 20px; }
         }
-    
-/* bottle-cta-motion */
-.bottle-next-step{display:flex;align-items:center;justify-content:center;gap:8px;margin:-18px auto 30px;color:var(--brand-slate);font-size:13px;font-weight:800}.bottle-next-step i{color:var(--brand-red)}.cta-pulse{animation:bottle-cta-pulse 2.8s ease-in-out infinite}@keyframes bottle-cta-pulse{0%,100%{box-shadow:0 8px 18px rgba(220,38,38,.22);transform:translateY(0)}50%{box-shadow:0 12px 26px rgba(220,38,38,.38);transform:translateY(-2px)}}@media(prefers-reduced-motion:reduce){.cta-pulse{animation:none}}
-/* Campaign redesign: a clear, trustworthy progress dashboard */
-.hero{padding:150px 0 90px;background:radial-gradient(circle at 82% 28%,rgba(220,38,38,.1),transparent 30%),linear-gradient(135deg,#f8fafc 0%,#fff 58%,#fff7f7 100%)}
-.trust-badge{background:#14181f;border-color:#14181f;color:#fff}.hero-title{max-width:900px;margin:0 auto 18px;font-size:clamp(36px,6vw,76px);line-height:.98;letter-spacing:-3px}.hero-subtitle{max-width:700px;font-size:17px}.alert-banner{max-width:900px;border:0;border-left:5px solid #f59e0b;background:#fff;box-shadow:0 14px 35px rgba(15,23,42,.08)}
-.pump-card{max-width:1040px;padding:26px;border:0;background:#14181f;box-shadow:0 25px 60px rgba(15,23,42,.18)}.pump-container{max-width:900px;margin-bottom:24px;aspect-ratio:16/7;border-radius:18px;overflow:hidden;background:#202936}.pump-bg{filter:grayscale(1) opacity(.25)}.progress-box{max-width:900px;margin-bottom:18px;background:#3b4654}.progress-bar-fill{background:linear-gradient(90deg,#ef4444,#fb7185);box-shadow:0 0 18px rgba(239,68,68,.4)}
-.campaign-stats{max-width:900px;grid-template-columns:1.15fr 1fr;gap:12px;margin-top:0}.campaign-stat{border:1px solid rgba(255,255,255,.12);background:#202936;text-align:left;padding:20px 22px}.campaign-stat strong{color:#fff}.campaign-stat-main strong{color:#ff6970}.campaign-stat span:last-child{color:#aeb8c4}.campaign-goal-note{color:#aeb8c4}.campaign-goal-note strong{color:#fff}.campaign-progress-summary{max-width:900px;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px auto 0}.campaign-progress-summary>div{padding:13px 16px;border-radius:12px;background:#202936;text-align:left}.campaign-progress-summary strong{display:block;color:#fff;font-size:22px}.campaign-progress-summary span{color:#aeb8c4;font-size:11px;font-weight:700}
-.about-section,.rules-section{background:#fff}.about-card{background:#f8fafc;border:0;box-shadow:0 10px 26px rgba(15,23,42,.05)}.calc-section,.action-section{background:#f8fafc}
-@media(max-width:768px){.hero{padding:116px 0 58px}.hero-title{letter-spacing:-1.8px}.pump-card{padding:14px}.pump-container{aspect-ratio:4/3}.campaign-stats,.campaign-progress-summary{grid-template-columns:1fr}.campaign-stat,.campaign-progress-summary>div{text-align:center}}
-</style>
+    </style>
 	<script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -249,17 +231,13 @@ content="https://ospbialogrady.github.io/assets/img/optimized/sharebuteki.webp">
         }
     </style>
 	  <link rel="stylesheet" href="assets/css/site-nav.css">
-<style id="priority1-cookie-fix">.cookie-banner{max-width:min(520px,calc(100% - 24px));bottom:16px;right:12px;left:auto;border-radius:14px;z-index:1100}@media(max-width:600px){.cookie-banner{bottom:12px;right:12px;left:12px;max-width:none}}</style><meta name="description" content="Zbiórka butelek i puszek kaucyjnych na nową motopompę dla OSP Białogrądy."><link rel="canonical" href="https://ospbialogrady.github.io/butelki.html"><style id="pickup-card-style">
-.pickup-info-card{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;margin-top:28px;padding:24px;border:1px solid rgba(20,24,31,.1);border-radius:22px;background:linear-gradient(135deg,#fff 0%,#f7f8fa 100%);box-shadow:0 14px 30px rgba(20,24,31,.08)}
-.pickup-info-icon{width:52px;height:52px;display:grid;place-items:center;border-radius:16px;background:rgba(200,22,29,.1);color:#c8161d;font-size:22px}
-.pickup-info-card h2{margin:0 0 5px;font-size:24px;color:#17202b}.pickup-info-card .pickup-place{margin:0 0 12px;color:#c8161d;font-weight:800}.pickup-info-card .pickup-text{margin:0 0 14px;color:#66717e;font-size:14px;line-height:1.6}.pickup-info-card .pickup-address{display:block;margin-bottom:14px;color:#17202b;font-weight:700}.pickup-info-actions{display:flex;gap:10px;flex-wrap:wrap}.pickup-info-actions a{display:inline-flex;align-items:center;gap:7px;padding:10px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:800}.pickup-info-actions .pickup-map{background:#c8161d;color:#fff}.pickup-info-actions .pickup-call{border:1px solid rgba(20,24,31,.16);color:#17202b;background:#fff}@media(max-width:600px){.pickup-info-card{grid-template-columns:1fr;padding:20px}.pickup-info-actions a{width:100%;justify-content:center}}
-</style><style id="bottle-title-centering">.hero-title{display:block;width:100%;text-align:center;margin-left:auto;margin-right:auto}.hero{ text-align:center}</style></head>
+</head>
 <body>
 
 <!-- NAVBAR -->
 <nav id="site-nav" class="site-nav">
   <div class="container site-nav-inner">
-    <a class="site-brand" href="index.html"><img src="assets/img/optimized/logo.webp" alt="Logo OSP Białogrądy"></a>
+    <a class="site-brand" href="index.html"><img src="assets/img/logo.png" alt="Logo OSP Białogrądy"></a>
     <ul class="site-nav-links" id="primary-navigation">
       <li class="nav-main"><a href="index.html#about">O nas</a></li>
       <li class="nav-main"><a href="index.html#missions">Działania</a></li>
@@ -299,38 +277,25 @@ content="https://ospbialogrady.github.io/assets/img/optimized/sharebuteki.webp">
         </div>
 
         <div class="hero-actions">
-            <a href="#remiza" class="btn btn-primary cta-pulse"><i class="fa-solid fa-dumpster"></i> Odbiór przy remizie</a>
+            <a href="#remiza" class="btn btn-primary"><i class="fa-solid fa-dumpster"></i> Odbiór przy remizie</a>
             <a href="#odbior" class="btn btn-outline"><i class="fa-solid fa-truck-pickup"></i> Odbiór większych ilości</a>
         </div>
-        <p class="bottle-next-step"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> Masz już pełną torbę? Sprawdź, gdzie możesz ją zostawić.</p>
 
         <!-- PUMP FILL CARD -->
         <div class="pump-card">
             <div class="pump-container" id="pumpContainer">
-                <img class="pump-img pump-bg" src="assets/img/optimized/motopompa.webp" alt="Motopompa" onerror="this.src='https://placehold.co/680x380/e2e8f0/64748b?text=Brak+pliku+motopompa.png'">
+                <img class="pump-img pump-bg" src="assets/img/motopompa.png" alt="Motopompa" onerror="this.src='https://placehold.co/680x380/e2e8f0/64748b?text=Brak+pliku+motopompa.png'">
                 <div class="pump-fg">
-                    <img class="pump-img" src="assets/img/optimized/motopompa.webp" alt="Motopompa Wypełnienie" onerror="this.src='https://placehold.co/680x380/dc2626/ffffff?text=Brak+pliku+motopompa.png'">
+                    <img class="pump-img" src="assets/img/motopompa.png" alt="Motopompa Wypełnienie" onerror="this.src='https://placehold.co/680x380/dc2626/ffffff?text=Brak+pliku+motopompa.png'">
                 </div>
             </div>
 
             <div class="progress-box">
                 <div class="progress-bar-fill" id="progressBar"></div>
             </div>
-            <div class="campaign-stats" aria-label="Aktualny wynik zbiórki">
-                <div class="campaign-stat campaign-stat-main">
-                    <strong><span class="current" id="counter">0</span></strong>
-                    <span>zebranych opakowań</span>
-                </div>
-                <div class="campaign-stat campaign-stat-money">
-                    <strong><span id="amountCounter">0,00 zł</span></strong>
-                    <span>zebrane z kaucji</span>
-                </div>
+            <div class="counter-display">
+                <span class="current" id="counter">0</span> / 100 000 <small style="font-size:15px; color:var(--text-muted); font-weight:600;">opakowań (Cel: 50 000 zł)</small>
             </div>
-            <div class="campaign-progress-summary">
-                <div><strong id="itemsPercent">0,00%</strong><span>realizacji celu opakowań</span></div>
-                <div><strong id="moneyPercent">0,00%</strong><span>realizacji celu finansowego</span></div>
-            </div>
-            <p class="campaign-goal-note">Cel: <strong>100 000 opakowań</strong> oraz <strong>50 000 zł</strong> na nową motopompę.</p>
         </div>
     </div>
 </header>
@@ -437,19 +402,13 @@ content="https://ospbialogrady.github.io/assets/img/optimized/sharebuteki.webp">
 <section class="action-section" id="remiza">
     <div class="container">
         <!-- PUNKT STACJONARNY -->
-        <div class="pickup-info-card">
-            <div class="pickup-info-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
-            <div>
-                <h2>Główny punkt zbiórki</h2>
-                <p class="pickup-place">Remiza OSP Białogrądy</p>
-                <p class="pickup-text">Przywieź butelki i puszki po wcześniejszym kontakcie telefonicznym lub SMS. Dzięki temu druhowie będą mogli potwierdzić dogodny termin.</p>
-                <span class="pickup-address"><i class="fa-solid fa-map-pin" aria-hidden="true"></i> Białogrądy 44, 19-200 Grajewo</span>
-                <div class="pickup-info-actions">
-                    <a class="pickup-map" href="https://www.google.com/maps/search/?api=1&query=OSP%20Bia%C5%82ogr%C4%85dy%2C%20Bia%C5%82ogr%C4%85dy%2044%2C%2019-200%20Grajewo" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> Otwórz mapę</a>
-                    <a class="pickup-call" href="tel:882505623"><i class="fa-solid fa-phone" aria-hidden="true"></i> Umów odbiór</a>
-                </div>
-            </div>
+        <div class="location-card">
+            <i class="fa-solid fa-warehouse"></i>
+            <h2 style="font-size:26px; font-weight:900; color:var(--brand-navy); margin-bottom:6px;">Główny Punkt Zbiórki</h2>
+            <p style="font-size: 17px; color: var(--brand-red); font-weight:800; margin-bottom: 6px;">Remiza OSP Białogrądy</p>
+            <p style="color: var(--text-muted); font-size:14px;">Przywieźć butelki oraz puszki można po kontakcie telefonicznym lub sms z nami, pod naszą remizą.</p>
         </div>
+
         <!-- ODBIÓR Z POSESJI -->
         <div class="pickup-box" id="odbior">
             <div class="trust-badge" style="background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.2); color:#fff; margin-bottom:15px;">
@@ -487,22 +446,16 @@ content="https://ospbialogrady.github.io/assets/img/optimized/sharebuteki.webp">
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         // --- DANE ZBIÓRKI I ANIMACJE ---
-        const currentItems = 826; 
-        const currentAmount = 321.80;
+        const currentItems = 50000; 
         const targetItems = 100000;
-        const targetAmount = 50000;
         const percentage = Math.min((currentItems / targetItems) * 100, 100);
-        const moneyPercentage = Math.min((currentAmount / targetAmount) * 100, 100);
 
         setTimeout(() => {
             document.getElementById('pumpContainer').style.setProperty('--fill-percent', percentage + '%');
             document.getElementById('progressBar').style.width = percentage + '%';
-            document.getElementById('itemsPercent').textContent = percentage.toLocaleString('pl-PL', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '%';
-            document.getElementById('moneyPercent').textContent = moneyPercentage.toLocaleString('pl-PL', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '%';
 
             let count = 0;
             const counterEl = document.getElementById('counter');
-            const amountEl = document.getElementById('amountCounter');
             const step = Math.ceil(currentItems / 60);
 
             const timer = setInterval(() => {
@@ -512,9 +465,7 @@ content="https://ospbialogrady.github.io/assets/img/optimized/sharebuteki.webp">
                     clearInterval(timer);
                 }
                 counterEl.textContent = count.toLocaleString('pl-PL');
-                amountEl.textContent = ((count / currentItems) * currentAmount).toLocaleString('pl-PL', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' zł';
             }, 25);
-            amountEl.textContent = currentAmount.toLocaleString('pl-PL', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' zł';
         }, 300);
 
         // --- OBSŁUGA KALKULATORA ---
