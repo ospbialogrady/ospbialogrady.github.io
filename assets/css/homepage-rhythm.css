@@ -235,3 +235,24 @@
   .hero-overlay { background:rgba(8,12,16,.62)!important; }
   .hero-content, .scroll-indicator { position:relative!important; z-index:2!important; }
 }
+
+@media (max-width:750px) {
+  /* The mobile hero must be a complete viewport block, just like desktop. */
+  .hero {
+    height:100svh!important;
+    min-height:100svh!important;
+    max-height:none!important;
+    overflow:hidden!important;
+    isolation:isolate;
+  }
+  .hero-video,
+  .hero-overlay {
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    min-height:100%!important;
+  }
+  .hero-overlay { background:rgba(8,12,16,.62)!important; }
+  .hero-content, .scroll-indicator { position:relative!important; z-index:2!important; }
+}
